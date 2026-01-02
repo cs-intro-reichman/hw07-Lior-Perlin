@@ -7,22 +7,35 @@ public class Binomial {
     	// System.out.println(binomial1(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
 
 		// Testing the optimized binomial implementation:
-		// System.out.println(binomial(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
+		System.out.println(binomial(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
 	}
 
 	// Computes the Binomial function, basic version.
-	public static int binomial1(int n, int k) { 
-		//// Repplace the following comment with your code
-		return 0;
-	 }
-	
+	public static int binomial1(int n, int k) {
+		if (k > n) return 0;
+		if (k == 0 || n == 0) return 1;
+		return binomial1(n - 1, k) + binomial1(n - 1, k - 1);
+	}
+
 	// Computes the Binomial function, efficiently
 	public static int binomial(int n, int k) {
-		//// This function creates a 2D array, say memo, 
+		//// This function creates a 2D array, say memo,
 		//// and then initializes all its elements to -1.
 		//// It then calls binomial(n, k, memo), which does all the heavy lifiting.
 		//// Replace the following statement with your code.
-		return 0;
+		int[][] memo = new int[n + 1][k + 1];
+		basingMemo(0, 0, memo);
+		return binomial(n, k, memo);
+	}
+
+	// The following function recieves a 2D array, and initialized all its elements to -1.
+	private static void basingMemo(int i, int j, int[][] memo) {
+		if(i >= memo.length || j >= memo[i].length) {
+			return;
+		}
+		memo[i][j] = -1;
+		basingMemo(i, j + 1, memo); // Initialize to entire row
+		basingMemo(i + 1, j, memo); // Initialize to all column
 	}
 
 	private static int binomial(int n, int k, int[][] memo) {

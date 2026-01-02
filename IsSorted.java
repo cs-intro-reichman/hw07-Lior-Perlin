@@ -7,8 +7,14 @@ public class IsSorted {
 
     // Helper recursive function
     private static boolean isSorted(int[] a, int i) {
-        //// Replace the following statement with your code
-        return false; 
+        // Defining base, This is when our current index number does not has a number after it.
+        // In this case we've gotten to the end of the array and we should start going back.
+        if(i + 1 == a.length || i >= a.length) {
+            return true;
+        }
+        // Making sure our current number and the one after that are sorted
+        // and requesting the same on the next index on recurtion
+        return a[i] <= a[i + 1] && isSorted(a, i + 1);
     }
 
     public static void main(String[] args) {

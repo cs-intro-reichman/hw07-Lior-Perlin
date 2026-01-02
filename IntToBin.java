@@ -8,7 +8,14 @@ public class IntToBin {
 
     /** Returns the binary representation of the given integer, as a string of 0's and 1's.  */
     public static String toBinary(int x) {
-        //// Replace the following statement with your code
-        return "";
+        if(x == 0) { // Base condition - we got to the end of the number
+            return "";
+        }
+        if ((x % 2) == 0) { //That means our current bin number is devidable by 2 so it should recieve a '0'
+            return toBinary(x / 2) + "0";
+        }
+        else { // Means our current bin index number is not devidable
+            return  toBinary(x / 2) + "1";
+        }
     }    
  }
