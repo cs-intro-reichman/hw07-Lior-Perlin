@@ -1,3 +1,7 @@
+/*
+Feedback: nicely written code :)
+*/
+
 /** Checks if a given string is a palindrome. */
 public class Palindrome {
 
@@ -12,4 +16,5 @@ public class Palindrome {
 		}
 		return (s.charAt(0) == s.charAt(s.length() - 1)) && isPalindrome(s.substring(1, s.length() - 1));
     }
+
 }
