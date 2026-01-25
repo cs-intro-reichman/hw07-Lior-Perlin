@@ -1,3 +1,7 @@
+/*
+Feedback: nicely written :)
+*/
+
 public class IsSorted {
 
     // Public function: called by the user
